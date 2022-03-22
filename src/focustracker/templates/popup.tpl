@@ -23,20 +23,21 @@
         top: 50%;
         left: 50%;
         width: 500px;
-        height: 500px;
+        height: 250px;
         margin-left: -250px;
         margin-top: -250px;
         z-index: 1001;
     }
 
     #popupclose {
+        color: white;
         float: right;
         padding: 10px;
         cursor: pointer;
     }
 
     .popupcontent {
-        text-align: center;
+        color: white;
         padding: 20px;
     }
 </style>

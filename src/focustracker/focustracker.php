@@ -28,7 +28,7 @@ class focustracker extends Module
         $this->name = 'focustracker';
         $this->tab = 'front_office_features';
         $this->version = '1.0.0';
-        $this->author = 'PrestaPros.com';
+        $this->author = 'PavelMie';
         $this->need_instance = 0;
         $this->ps_versions_compliancy = [
             'min' => '1.7',
@@ -39,7 +39,7 @@ class focustracker extends Module
         parent::__construct();
 
         $this->displayName = $this->l('focustracker');
-        $this->description = $this->l('Zadanie rekrutacyjne.');
+        $this->description = $this->l('Popup display module.');
 
         $this->confirmUninstall = $this->l('Are you sure you want to uninstall?');
     }
@@ -160,10 +160,11 @@ class focustracker extends Module
                 $configValue = (string) Tools::getValue($field);
                 $condition = Validate::isCleanHtml($configValue);
 
-                if ($field == 'FOCUSTRACKER_CATEGORY_ID'
-                    || $field == 'FOCUSTRACKER_PRODUCT_ID'
-                    || $field == 'FOCUSTRACKER_BREAK')
-                    $condition = Validate::isInt($configValue);
+                if(!empty($configValue))
+                    if ($field == 'FOCUSTRACKER_CATEGORY_ID'
+                        || $field == 'FOCUSTRACKER_PRODUCT_ID'
+                        || $field == 'FOCUSTRACKER_BREAK')
+                        $condition = Validate::isInt($configValue);
 
                 if (!$condition){
                     $output = $this->displayError($this->l('Invalid Configuration value'));
@@ -304,7 +305,7 @@ class focustracker extends Module
                     ],
                     [
                         'type' => 'file',
-                        'label' => $this->l('Background image (500x500):'),
+                        'label' => $this->l('Background image (500x250):'),
                         'name' => 'FOCUSTRACKER_IMAGE_FILE',
                     ],
                     [
