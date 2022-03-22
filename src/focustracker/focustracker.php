@@ -113,8 +113,9 @@ class focustracker extends Module
         $background_image   = Tools::getValue('FOCUSTRACKER_IMAGE', Configuration::get('FOCUSTRACKER_IMAGE'));
         $link = new Link;
         $imagePath = $link->getBaseLink().'upload/'.$background_image;
+        $serverLink = _PS_UPLOAD_DIR_.$background_image;
 
-        $background = empty($background_image) || !file_exists($imagePath) ? "background: $bg_color;" : "background-image: url('$imagePath');";
+        $background = empty($background_image) || !file_exists($serverLink) ? "background: $bg_color;" : "background-image: url('$imagePath');";
 
         //get rest of the data
         $popup_text = Tools::getValue('FOCUSTRACKER_POPUP_TEXT', Configuration::get('FOCUSTRACKER_POPUP_TEXT'));
